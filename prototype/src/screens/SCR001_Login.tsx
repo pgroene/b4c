@@ -26,6 +26,13 @@ const ROLES: { persona: Persona; label: string; desc: string; badge: string; col
     color: '#3B82F6',
   },
   {
+    persona: 'ProductOwner',
+    label: 'Product Owner',
+    desc: 'Beheert scope, use cases en acceptatiecriteria.',
+    badge: 'Scope',
+    color: '#8B5CF6',
+  },
+  {
     persona: 'Investor',
     label: 'Investor',
     desc: 'Ziet traceability, readiness en controlled AI.',
@@ -53,13 +60,13 @@ export function SCR001_Login(): React.JSX.Element {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-8" style={{ background: '#0A1F35' }}>
-      <div className="w-full max-w-lg">
+      <div className="w-full max-w-2xl">
         <img src="/assets/b4code-logo.jpeg" alt="B4Code" className="h-10 mb-6 object-contain object-left" />
         <div className="text-[11px] font-mono text-[#E36F21] uppercase tracking-widest mb-2">AI-FIRST SPECIFICATION FACTORY</div>
         <h1 className="text-4xl font-bold text-white mb-3">Specify before you build.</h1>
         <p className="text-[#6B7A90] mb-8">Kies een demo-rol om de Kerkleden-app case te bekijken vanuit jouw perspectief.</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           {ROLES.map(({ persona, label, desc, badge, color }) => {
             const isSelected = selected === persona
             return (
