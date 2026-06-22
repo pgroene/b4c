@@ -1,6 +1,6 @@
-// config.js — local development fallback.
-// In production this file is replaced by docker-entrypoint.sh at container start.
-// Set VITE_DEMO_PASSWORD in .env for local dev, or leave empty to skip the gate.
+// config.js — local development. NOT committed to git in production.
+// In the container this file is replaced by docker-entrypoint.sh at start.
 window.__DEMO_CONFIG__ = {
-  demoPassword: ""
+  demoUsername: "b4code",
+  demoPassword: "Demo2026!"
 };
