@@ -1,0 +1,162 @@
+[
+  {
+    "code": "B4C-SCR-001",
+    "title": "Login & toegang",
+    "route": "/login",
+    "wave": "Wave 01 - core",
+    "persona": "Consultant / Founder",
+    "proof_goal": "Inloggen, demo-rol kiezen, SaaS-gevoel tonen"
+  },
+  {
+    "code": "B4C-SCR-002",
+    "title": "Workspace / tenant-keuze",
+    "route": "/workspaces",
+    "wave": "Wave 01 - core",
+    "persona": "Consultant / Founder",
+    "proof_goal": "Demo-tenant en stakeholdercontext selecteren"
+  },
+  {
+    "code": "B4C-SCR-003",
+    "title": "Klantomgeving overzicht",
+    "route": "/customers/ngk-beverwijk",
+    "wave": "Wave 01 - core",
+    "persona": "Consultant / Product owner",
+    "proof_goal": "Klantomgeving en projecten zichtbaar maken"
+  },
+  {
+    "code": "B4C-SCR-004",
+    "title": "Projectoverzicht",
+    "route": "/projects",
+    "wave": "Wave 01 - core",
+    "persona": "Consultant / Founder",
+    "proof_goal": "Portfolio van specificatieprojecten tonen"
+  },
+  {
+    "code": "B4C-SCR-005",
+    "title": "Projectdashboard",
+    "route": "/projects/kapp/dashboard",
+    "wave": "Wave 01 - core",
+    "persona": "Alle demo-personas",
+    "proof_goal": "Centrale cockpit voor Kerkleden-app demo-case"
+  },
+  {
+    "code": "B4C-SCR-006",
+    "title": "Projectstart & classificatie",
+    "route": "/projects/kapp/classification",
+    "wave": "Wave 01 - core",
+    "persona": "Consultant / Product owner",
+    "proof_goal": "Projecttype, route en scopebasis kiezen"
+  },
+  {
+    "code": "B4C-SCR-007",
+    "title": "Intake-invoer & broninput",
+    "route": "/projects/kapp/intake",
+    "wave": "Wave 01 - core",
+    "persona": "Consultant",
+    "proof_goal": "Klantinput invoeren als herleidbare bron"
+  },
+  {
+    "code": "B4C-SCR-008",
+    "title": "Waarheidsdossier light",
+    "route": "/projects/kapp/sources",
+    "wave": "Wave 01 - core",
+    "persona": "Consultant / Product owner",
+    "proof_goal": "Bronnen als gecontroleerde waarheid tonen"
+  },
+  {
+    "code": "B4C-SCR-009",
+    "title": "Open vragen & validatiepunten",
+    "route": "/projects/kapp/questions",
+    "wave": "Wave 01 - core",
+    "persona": "Consultant / Product owner",
+    "proof_goal": "Ontbrekende informatie zichtbaar maken"
+  },
+  {
+    "code": "B4C-SCR-010",
+    "title": "Requirements workspace",
+    "route": "/projects/kapp/requirements",
+    "wave": "Wave 01 - core",
+    "persona": "Consultant / Product owner",
+    "proof_goal": "Input vertalen naar requirements"
+  },
+  {
+    "code": "B4C-SCR-011",
+    "title": "Use cases workspace",
+    "route": "/projects/kapp/use-cases",
+    "wave": "Wave 01 - core",
+    "persona": "Consultant / Product owner",
+    "proof_goal": "Requirements koppelen aan gedrag"
+  },
+  {
+    "code": "B4C-SCR-012",
+    "title": "Traceability light view",
+    "route": "/projects/kapp/traceability",
+    "wave": "Wave 01 - core",
+    "persona": "Founder / Investor / Consultant",
+    "proof_goal": "Bron-naar-output keten aantonen"
+  },
+  {
+    "code": "B4C-SCR-013",
+    "title": "Levend Functioneel Verhaal view",
+    "route": "/projects/kapp/lfv",
+    "wave": "Wave 01 - core",
+    "persona": "Founder / Product owner / Investor",
+    "proof_goal": "Klantleesbaar verhaal als object-view tonen"
+  },
+  {
+    "code": "B4C-SCR-014",
+    "title": "Documentgeneratie preview",
+    "route": "/projects/kapp/documents",
+    "wave": "Wave 01 - core",
+    "persona": "Consultant / Founder",
+    "proof_goal": "Documenttypes en exportlogica tonen"
+  },
+  {
+    "code": "B4C-SCR-015",
+    "title": "Prototypebriefing / schermset view",
+    "route": "/projects/kapp/prototype-briefing",
+    "wave": "Wave 01 - core",
+    "persona": "UX/UI / Product owner",
+    "proof_goal": "Specificatie richting UX/prototype tonen"
+  },
+  {
+    "code": "B4C-SCR-016",
+    "title": "PMO & readiness dashboard",
+    "route": "/projects/kapp/readiness",
+    "wave": "Wave 01 - core",
+    "persona": "Founder / Product owner / Investor",
+    "proof_goal": "Voortgang, blokkades en validatiegereedheid tonen"
+  },
+  {
+    "code": "B4C-SCR-017",
+    "title": "Routeprofiel & settings",
+    "route": "/projects/kapp/settings",
+    "wave": "Wave 02 - demo-plus",
+    "persona": "Consultant / Product owner",
+    "proof_goal": "Handmatige routeconfiguratie tonen"
+  },
+  {
+    "code": "B4C-SCR-018",
+    "title": "AI-agent run panel",
+    "route": "/projects/kapp/ai-run",
+    "wave": "Wave 02 - demo-plus",
+    "persona": "Consultant / Founder",
+    "proof_goal": "AI-run light zichtbaar maken zonder black box"
+  },
+  {
+    "code": "B4C-SCR-019",
+    "title": "Knowledge Vault preview",
+    "route": "/projects/kapp/knowledge-vault",
+    "wave": "Wave 02 - demo-plus",
+    "persona": "Founder / Investor",
+    "proof_goal": "Toekomstige kennislaag gecontroleerd tonen"
+  },
+  {
+    "code": "B4C-SCR-020",
+    "title": "Export & B4Ops handover preview",
+    "route": "/projects/kapp/handover",
+    "wave": "Wave 02 - demo-plus",
+    "persona": "Founder / Developmentpartner",
+    "proof_goal": "Brug naar build-ready overdracht tonen"
+  }
+]

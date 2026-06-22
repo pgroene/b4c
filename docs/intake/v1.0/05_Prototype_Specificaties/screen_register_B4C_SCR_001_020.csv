@@ -1,0 +1,21 @@
+code,screen,route,wave,primary_persona,proof_goal
+B4C-SCR-001,Login & toegang,/login,Wave 01 - core,Consultant / Founder,"Inloggen, demo-rol kiezen, SaaS-gevoel tonen"
+B4C-SCR-002,Workspace / tenant-keuze,/workspaces,Wave 01 - core,Consultant / Founder,Demo-tenant en stakeholdercontext selecteren
+B4C-SCR-003,Klantomgeving overzicht,/customers/ngk-beverwijk,Wave 01 - core,Consultant / Product owner,Klantomgeving en projecten zichtbaar maken
+B4C-SCR-004,Projectoverzicht,/projects,Wave 01 - core,Consultant / Founder,Portfolio van specificatieprojecten tonen
+B4C-SCR-005,Projectdashboard,/projects/kapp/dashboard,Wave 01 - core,Alle demo-personas,Centrale cockpit voor Kerkleden-app demo-case
+B4C-SCR-006,Projectstart & classificatie,/projects/kapp/classification,Wave 01 - core,Consultant / Product owner,"Projecttype, route en scopebasis kiezen"
+B4C-SCR-007,Intake-invoer & broninput,/projects/kapp/intake,Wave 01 - core,Consultant,Klantinput invoeren als herleidbare bron
+B4C-SCR-008,Waarheidsdossier light,/projects/kapp/sources,Wave 01 - core,Consultant / Product owner,Bronnen als gecontroleerde waarheid tonen
+B4C-SCR-009,Open vragen & validatiepunten,/projects/kapp/questions,Wave 01 - core,Consultant / Product owner,Ontbrekende informatie zichtbaar maken
+B4C-SCR-010,Requirements workspace,/projects/kapp/requirements,Wave 01 - core,Consultant / Product owner,Input vertalen naar requirements
+B4C-SCR-011,Use cases workspace,/projects/kapp/use-cases,Wave 01 - core,Consultant / Product owner,Requirements koppelen aan gedrag
+B4C-SCR-012,Traceability light view,/projects/kapp/traceability,Wave 01 - core,Founder / Investor / Consultant,Bron-naar-output keten aantonen
+B4C-SCR-013,Levend Functioneel Verhaal view,/projects/kapp/lfv,Wave 01 - core,Founder / Product owner / Investor,Klantleesbaar verhaal als object-view tonen
+B4C-SCR-014,Documentgeneratie preview,/projects/kapp/documents,Wave 01 - core,Consultant / Founder,Documenttypes en exportlogica tonen
+B4C-SCR-015,Prototypebriefing / schermset view,/projects/kapp/prototype-briefing,Wave 01 - core,UX/UI / Product owner,Specificatie richting UX/prototype tonen
+B4C-SCR-016,PMO & readiness dashboard,/projects/kapp/readiness,Wave 01 - core,Founder / Product owner / Investor,"Voortgang, blokkades en validatiegereedheid tonen"
+B4C-SCR-017,Routeprofiel & settings,/projects/kapp/settings,Wave 02 - demo-plus,Consultant / Product owner,Handmatige routeconfiguratie tonen
+B4C-SCR-018,AI-agent run panel,/projects/kapp/ai-run,Wave 02 - demo-plus,Consultant / Founder,AI-run light zichtbaar maken zonder black box
+B4C-SCR-019,Knowledge Vault preview,/projects/kapp/knowledge-vault,Wave 02 - demo-plus,Founder / Investor,Toekomstige kennislaag gecontroleerd tonen
+B4C-SCR-020,Export & B4Ops handover preview,/projects/kapp/handover,Wave 02 - demo-plus,Founder / Developmentpartner,Brug naar build-ready overdracht tonen

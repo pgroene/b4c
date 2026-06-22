@@ -1,0 +1,12 @@
+step,from_screen,to_screen,interaction
+1,B4C-SCR-001,B4C-SCR-002,Login met demo-rol
+2,B4C-SCR-002,B4C-SCR-005,Kies tenant: Kerkleden-app NGK Beverwijk
+3,B4C-SCR-005,B4C-SCR-007,Start intake / bekijk klantinput
+4,B4C-SCR-007,B4C-SCR-009,Run AI light: open vragen detecteren
+5,B4C-SCR-009,B4C-SCR-010,Accepteer/open vraag en maak requirement
+6,B4C-SCR-010,B4C-SCR-011,Koppel requirement aan use case
+7,B4C-SCR-011,B4C-SCR-012,Toon traceability
+8,B4C-SCR-012,B4C-SCR-013,Genereer LFV-view
+9,B4C-SCR-013,B4C-SCR-016,Toon readiness en demo decision gate
+10,B4C-SCR-016,B4C-SCR-014,Bekijk documentgeneratie-preview
+11,B4C-SCR-014,B4C-SCR-020,Export/handover preview

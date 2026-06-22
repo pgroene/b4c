@@ -1,0 +1,118 @@
+{
+  "tenant": {
+    "id": "TEN-B4C-DEMO-001",
+    "name": "Kerkleden-app NGK Beverwijk",
+    "type": "Demo tenant",
+    "data_policy": "Fictief/geschoond; geen persoonsgegevens gebruiken"
+  },
+  "project": {
+    "id": "KAPP-DEMO-001",
+    "name": "Kerkleden-app NGK Beverwijk",
+    "route_profile": "Applicatie specificatie - light route",
+    "readiness": 62,
+    "phase": "Specificatiebasis opbouwen"
+  },
+  "sources": [
+    {
+      "id": "SRC-001",
+      "title": "Initiële klantvraag",
+      "type": "intake",
+      "status": "validated",
+      "excerpt": "Besloten ledenapp voor kerkleden, met ledenprofielen, agenda, community, documenten en roosters."
+    },
+    {
+      "id": "SRC-002",
+      "title": "Functionele verdieping roosters",
+      "type": "document",
+      "status": "validated",
+      "excerpt": "Muziekteam- en bijbellezersroosters inclusief beschikbaarheid zijn Must-have V1."
+    },
+    {
+      "id": "SRC-003",
+      "title": "Beheeromgeving uitgangspunt",
+      "type": "document",
+      "status": "proposed",
+      "excerpt": "Aparte beheeromgeving voor ledenbeheer, rollen, documenten, agenda, community en audit."
+    }
+  ],
+  "questions": [
+    {
+      "id": "Q-001",
+      "priority": "High",
+      "status": "open",
+      "question": "Welke rollen mogen bezoekverslagen lezen en beheren?",
+      "source": "SRC-001"
+    },
+    {
+      "id": "Q-002",
+      "priority": "High",
+      "status": "open",
+      "question": "Welke technische kalenderintegratie wordt gekozen voor agenda en roosters?",
+      "source": "SRC-002"
+    },
+    {
+      "id": "Q-003",
+      "priority": "Medium",
+      "status": "review",
+      "question": "Welke documenten zijn in V1 beschikbaar en wie mag publiceren?",
+      "source": "SRC-003"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "title": "Besloten toegang voor leden",
+      "status": "validated",
+      "source": "SRC-001",
+      "acceptance": "Alleen geautoriseerde leden kunnen de app gebruiken."
+    },
+    {
+      "id": "REQ-002",
+      "title": "Roosters met beschikbaarheid",
+      "status": "proposed",
+      "source": "SRC-002",
+      "acceptance": "Gebruikers kunnen beschikbaarheid opgeven voor muziekteam en bijbellezers."
+    },
+    {
+      "id": "REQ-003",
+      "title": "Aparte beheeromgeving",
+      "status": "proposed",
+      "source": "SRC-003",
+      "acceptance": "Beheerders beheren leden, rollen, documenten en zichtbaarheid buiten de ledenapp."
+    }
+  ],
+  "use_cases": [
+    {
+      "id": "UC-001",
+      "title": "Lid logt in en bekijkt profiel/agenda",
+      "actor": "Lid",
+      "links": [
+        "REQ-001"
+      ]
+    },
+    {
+      "id": "UC-002",
+      "title": "Roosteraar beheert muziekteamrooster",
+      "actor": "Roosteraar",
+      "links": [
+        "REQ-002"
+      ]
+    },
+    {
+      "id": "UC-003",
+      "title": "Appbeheerder publiceert document",
+      "actor": "Appbeheerder",
+      "links": [
+        "REQ-003"
+      ]
+    }
+  ],
+  "documents": [
+    "Levend Functioneel Verhaal",
+    "Validatiebriefing",
+    "Functioneel ontwerp preview",
+    "Scherm/prototypebriefing",
+    "PMO/readiness rapport",
+    "Build-ready handover preview"
+  ]
+}

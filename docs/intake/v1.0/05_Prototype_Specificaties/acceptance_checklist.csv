@@ -1,0 +1,9 @@
+code,criterion,priority
+AC-001,Prototype is high-fidelity enough to demonstrate B4Code SaaS concept,Must
+AC-002,Main demo path runs in 5-8 minutes without dead ends,Must
+AC-003,"Every AI result is labeled as proposed/mock/accepted, never as hidden truth",Must
+AC-004,Kerkleden-app data is fictionalized or sanitized,Must
+AC-005,Dark shell and light contentcards are visually consistent across screens,Must
+AC-006,Traceability chain from source to requirement/use case/LFV is visible,Must
+AC-007,Wave 02 screens can be reached but may be read-only demo-plus,Should
+AC-008,Clickable prototype can run locally without backend dependency,Should

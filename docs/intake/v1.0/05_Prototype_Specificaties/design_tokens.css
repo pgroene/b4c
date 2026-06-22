@@ -1,0 +1,15 @@
+:root{
+  --deep-navy: #0A1F35;
+  --navy-panel: #112B4C;
+  --orange-control: #E36F21;
+  --red-alert: #C63B32;
+  --card-bg: #F7F9FC;
+  --white: #FFFFFF;
+  --text-dark: #0E1B2A;
+  --muted: #6B7A90;
+  --border: #DDE5EE;
+  --success: #2A9D8F;
+  --radius-card: 18px;
+  --sidebar-width: 280px;
+  --topbar-height: 72px;
+}

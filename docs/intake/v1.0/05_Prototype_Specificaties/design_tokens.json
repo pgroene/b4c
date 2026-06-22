@@ -1,0 +1,39 @@
+{
+  "brand": "B4Code",
+  "payoff": "Specify before you build",
+  "visual_direction": "dark B4Code SaaS shell with light contentcards",
+  "colors": {
+    "deep_navy": "#0A1F35",
+    "navy_panel": "#112B4C",
+    "orange_control": "#E36F21",
+    "red_alert": "#C63B32",
+    "card_bg": "#F7F9FC",
+    "white": "#FFFFFF",
+    "text_dark": "#0E1B2A",
+    "muted": "#6B7A90",
+    "border": "#DDE5EE",
+    "success": "#2A9D8F"
+  },
+  "layout": {
+    "sidebar_width": "280px",
+    "topbar_height": "72px",
+    "card_radius": "18px",
+    "content_max_width": "1440px"
+  },
+  "typography": {
+    "font_family": "Inter, Segoe UI, Arial, sans-serif",
+    "h1": "32px",
+    "h2": "22px",
+    "body": "15px",
+    "small": "12px"
+  },
+  "states": [
+    "draft",
+    "proposed",
+    "validated",
+    "blocked",
+    "review",
+    "ready",
+    "mock"
+  ]
+}

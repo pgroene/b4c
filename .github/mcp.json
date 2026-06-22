@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "requirement-store": {
+      "type": "sse",
+      "url": "http://localhost:3001/sse",
+      "description": "Requirement document store — indexes docs/requirements/**/*.md and exposes structured query tools. Start with: docker-compose up -d requirement-mcp"
+    }
+  }
+}

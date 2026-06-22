@@ -1,0 +1,10 @@
+component,purpose,used_in
+AppShell,"Dark shell with topbar, sidebar, light content canvas",All screens
+StatusBadge,draft/proposed/validated/blocked/readiness labels,"Object cards, document cards, QA"
+SourceBadge,"brontype, status, koppeling naar waarheidsdossier-light","Intake, questions, LFV, traceability"
+ObjectCard,"Requirement/use case/source cards with ID, title, status, links",Workspaces
+TraceabilityPanel,List or graph-like proof chain from source to output,"B4C-SCR-012, 020"
+AIAgentRunPanel,"Run state, inputset, proposed output, review status",B4C-SCR-018 and side panel
+ReadinessScoreCard,"Progress, blockers, gates, next best action","B4C-SCR-005, 016"
+DocumentPreviewCard,"Document type, preview excerpt, export status",B4C-SCR-014
+RoleSwitcher,Consultant/founder/product owner/investor demo view,"B4C-SCR-001, topbar"
