@@ -80,6 +80,14 @@ playwright-report/
 *.p12
 secrets/
 
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfstate.lock.info
+terraform.tfvars
+.terraform.lock.hcl
+
 # reqtrack — index is committed; lock/temp files are not
 .reqtrack/*.lock
 .reqtrack/tmp/
