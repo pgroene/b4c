@@ -7,7 +7,7 @@ import React from 'react'
  * @persona Founder, ProductOwner, Investor
  */
 import { useNavigate } from 'react-router-dom'
-import { Screen, PageHero, InfoCard, CardGrid } from '../ScreenLayout'
+import { Screen, PageHero, InfoCard, CardGrid, PersonaBanner } from '../ScreenLayout'
 import { ReadinessScoreCard } from '../components/ReadinessScoreCard'
 import { StatusBadge } from '../components/StatusBadge'
 import { mockProject } from '../data/mockData'
@@ -28,6 +28,12 @@ export function SCR016_Readiness(): React.JSX.Element {
         title="Demo decision gate"
         subtitle="Advies: GO voor clickable demo review; NO-GO voor build-ready SaaS-product."
       />
+      <PersonaBanner highlights={{
+        Consultant: ['Check completeness voor demo-oplevering', 'Verwerk blokkades vóór de review'],
+        Founder: ['Readiness = verkoopbaar bewijs naar klanten', 'GO = klaar voor demo-presentatie'],
+        ProductOwner: ['Scope volledigheid en acceptatiecriteriastatus', 'Blokkades die delivery raken'],
+        Investor: ['GO/ADJUST/BLOCK gate = gecontroleerde delivery', 'Score als bewijs voor methodische aanpak'],
+      }} />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
         <ReadinessScoreCard
           score={mockProject.readiness}

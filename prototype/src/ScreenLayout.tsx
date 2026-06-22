@@ -1,28 +1,16 @@
 import React from 'react'
 /**
- * ScreenLayout — context provider for persona state + AppShell wrapper.
- * Used by all screen components to avoid prop drilling.
+ * ScreenLayout — AppShell wrapper that consumes the root PersonaContext.
  *
  * @requirement *
  * @scope shell
  */
-import { createContext, useContext, useState } from 'react'
+import { usePersonaCtx } from './contexts/PersonaContext'
 import { AppShell } from './components/AppShell'
 import type { Persona } from './data/types'
 
-interface PersonaContextValue {
-  persona: Persona
-  setPersona: (p: Persona) => void
-}
-
-const PersonaContext = createContext<PersonaContextValue>({
-  persona: 'Consultant',
-  setPersona: () => {},
-})
-
-export function usePersonaContext(): PersonaContextValue {
-  return useContext(PersonaContext)
-}
+// Re-export so screens can still call usePersonaContext()
+export { usePersonaCtx as usePersonaContext }
 
 interface ScreenProps {
   code: string
@@ -31,21 +19,74 @@ interface ScreenProps {
 }
 
 /**
- * Screen — AppShell wrapper with persona context for individual screens.
+ * Screen — AppShell wrapper for individual screens.
  *
  * @requirement *
  * @scope shell
  */
 export function Screen({ code, title, children }: ScreenProps): React.JSX.Element {
-  const [persona, setPersona] = useState<Persona>('Consultant')
+  const { persona, setPersona } = usePersonaCtx()
   return (
-    <PersonaContext.Provider value={{ persona, setPersona }}>
-      <AppShell persona={persona} onPersonaChange={setPersona} screenCode={code} screenTitle={title}>
-        {children}
-      </AppShell>
-    </PersonaContext.Provider>
+    <AppShell persona={persona} onPersonaChange={setPersona} screenCode={code} screenTitle={title}>
+      {children}
+    </AppShell>
   )
 }
+
+const PERSONA_FOCUS: Record<Persona, { color: string; icon: string; text: string }> = {
+  Consultant: {
+    color: '#E36F21',
+    icon: '🛠',
+    text: 'Consultant-view — je ziet de volledige intake- en specificatieworkflow.',
+  },
+  Founder: {
+    color: '#3B82F6',
+    icon: '🚀',
+    text: 'Founder-view — focus op SaaS-propositie, schaalbaarheid en klantbewijs.',
+  },
+  ProductOwner: {
+    color: '#8B5CF6',
+    icon: '📋',
+    text: 'Product Owner-view — focus op use cases, acceptatiecriteria en scope.',
+  },
+  Investor: {
+    color: '#10B981',
+    icon: '📊',
+    text: 'Investor-view — focus op traceability, readiness score en controlled AI.',
+  },
+}
+
+/**
+ * PersonaBanner — shows a persona-specific focus hint at the top of a screen.
+ * Pass highlights as a Record<Persona, string[]> to show persona-specific bullets.
+ */
+export function PersonaBanner({ highlights }: { highlights?: Partial<Record<Persona, string[]>> }): React.JSX.Element {
+  const { persona } = usePersonaCtx()
+  const { color, icon, text } = PERSONA_FOCUS[persona]
+  const bullets = highlights?.[persona] ?? []
+  return (
+    <div
+      className="mb-6 rounded-[12px] px-4 py-3 flex flex-col gap-1"
+      style={{ background: `${color}12`, border: `1px solid ${color}40` }}
+    >
+      <div className="flex items-center gap-2 text-sm font-medium" style={{ color }}>
+        <span>{icon}</span>
+        <span>{text}</span>
+      </div>
+      {bullets.length > 0 && (
+        <ul className="flex flex-wrap gap-x-4 gap-y-1 mt-1">
+          {bullets.map((h, i) => (
+            <li key={i} className="text-xs flex items-center gap-1" style={{ color }}>
+              <span>›</span> {h}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  )
+}
+
+
 
 /** Reusable page hero header */
 export function PageHero({ label, title, subtitle }: { label: string; title: string; subtitle?: string }): React.JSX.Element {

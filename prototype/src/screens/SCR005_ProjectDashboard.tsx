@@ -7,7 +7,7 @@ import React from 'react'
  * @persona Consultant, Founder, ProductOwner, Investor
  */
 import { useNavigate } from 'react-router-dom'
-import { Screen, PageHero } from '../ScreenLayout'
+import { Screen, PageHero, PersonaBanner } from '../ScreenLayout'
 import { ReadinessScoreCard } from '../components/ReadinessScoreCard'
 import { StatusBadge } from '../components/StatusBadge'
 import { mockProject } from '../data/mockData'
@@ -29,6 +29,12 @@ export function SCR005_ProjectDashboard(): React.JSX.Element {
         title={mockProject.name}
         subtitle="Centrale cockpit voor eerste bewijsroute: input → objecten → traceability → LFV → readiness."
       />
+      <PersonaBanner highlights={{
+        Consultant: ['Volg de workflow van intake naar readiness', 'Zie open vragen en blokkades'],
+        Founder: ['SaaS-propositie: van chaos naar gestructureerde specificatie', 'Readiness score als verkoopargument'],
+        ProductOwner: ['Use case status en scope volledigheid', 'Open vragen die scope raken'],
+        Investor: ['Readiness gate: GO / ADJUST / BLOCK', 'Traceability completeness als bewijs'],
+      }} />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
         <ReadinessScoreCard
