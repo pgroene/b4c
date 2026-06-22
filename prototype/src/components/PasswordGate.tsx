@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import { useLang } from '../contexts/LanguageContext'
 
 /**
  * LoginGate — wraps the entire app with a username + password check.
- *
- * Credentials are injected at container start via DEMO_USERNAME / DEMO_PASSWORD
- * env vars (docker-entrypoint.sh → /config.js). Never baked into the image.
- * Auth state lives in sessionStorage: survives refresh, clears on tab close.
+ * Text uses the active language from LanguageContext.
  *
  * @requirement *
  * @scope shell
@@ -35,6 +33,8 @@ function getCredentials(): { username: string; password: string } | null {
 interface Props { children: React.ReactNode }
 
 export function PasswordGate({ children }: Props): React.JSX.Element {
+  const { t, lang, setLang } = useLang()
+  const g = t.gate
   const [authed, setAuthed] = useState<boolean>(() => {
     if (!getCredentials()) return true
     return sessionStorage.getItem(SESSION_KEY) === 'true'
@@ -82,20 +82,29 @@ export function PasswordGate({ children }: Props): React.JSX.Element {
         style={shake ? { animation: 'shake 0.45s ease-in-out' } : {}}>
 
         <img src="/assets/b4code-logo.jpeg" alt="B4Code"
-          className="h-10 mb-8 object-contain object-left"
+          className="h-10 mb-6 object-contain object-left"
           onError={(e) => (e.currentTarget.style.display = 'none')} />
 
-        <div className="text-[11px] font-mono text-[#E36F21] uppercase tracking-widest mb-2">
-          Demo access
+        {/* Language toggle */}
+        <div className="flex items-center gap-1 mb-8">
+          {(['nl', 'en'] as const).map(l => (
+            <button key={l} onClick={() => setLang(l)}
+              className="px-2.5 py-1 rounded text-xs font-mono uppercase transition-colors"
+              style={{ background: lang === l ? '#E36F21' : '#112B4C', color: lang === l ? 'white' : '#6B7A90' }}>
+              {l}
+            </button>
+          ))}
         </div>
-        <h1 className="text-2xl font-bold text-white mb-1">Sign in</h1>
-        <p className="text-[#6B7A90] text-sm mb-8">
-          This demo is private. Contact the B4Code team for access.
-        </p>
+
+        <div className="text-[11px] font-mono text-[#E36F21] uppercase tracking-widest mb-2">
+          {g.access}
+        </div>
+        <h1 className="text-2xl font-bold text-white mb-1">{g.heading}</h1>
+        <p className="text-[#6B7A90] text-sm mb-8">{g.subtitle}</p>
 
         <div className="flex flex-col gap-3">
           <div className="flex flex-col gap-1">
-            <label className="text-[#6B7A90] text-xs font-medium">Username</label>
+            <label className="text-[#6B7A90] text-xs font-medium">{g.userLabel}</label>
             <input
               type="text"
               autoFocus
@@ -103,14 +112,14 @@ export function PasswordGate({ children }: Props): React.JSX.Element {
               value={username}
               onChange={(e) => { setUsername(e.target.value); setError(false) }}
               onKeyDown={onKey}
-              placeholder="b4code"
+              placeholder={g.userPlaceholder}
               className="w-full px-4 py-3 rounded-xl text-sm outline-none border transition-colors"
               style={inputStyle(error)}
             />
           </div>
 
           <div className="flex flex-col gap-1">
-            <label className="text-[#6B7A90] text-xs font-medium">Password</label>
+            <label className="text-[#6B7A90] text-xs font-medium">{g.passLabel}</label>
             <input
               type="password"
               autoComplete="current-password"
@@ -124,9 +133,7 @@ export function PasswordGate({ children }: Props): React.JSX.Element {
           </div>
 
           {error && (
-            <p className="text-[#E34F4F] text-xs">
-              Incorrect username or password. Try again.
-            </p>
+            <p className="text-[#E34F4F] text-xs">{g.error}</p>
           )}
 
           <button
@@ -136,7 +143,7 @@ export function PasswordGate({ children }: Props): React.JSX.Element {
             onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.88')}
             onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
           >
-            Sign in →
+            {g.submit}
           </button>
         </div>
       </div>

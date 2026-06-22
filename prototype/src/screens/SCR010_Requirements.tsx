@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom'
 import { Screen, PageHero, DataTable, PersonaBanner } from '../ScreenLayout'
 import { StatusBadge } from '../components/StatusBadge'
 import { mockProject } from '../data/mockData'
+import { useLang } from '../contexts/LanguageContext'
 
 /**
  * SCR010_Requirements component.
@@ -19,15 +20,11 @@ import { mockProject } from '../data/mockData'
  */
 export function SCR010_Requirements(): React.JSX.Element {
   const nav = useNavigate()
+  const { t } = useLang()
   return (
-    <Screen code="B4C-SCR-010" title="Requirements workspace">
-      <PageHero label="REQUIREMENTS" title="Van bron naar requirement" subtitle="Input vertalen naar herleidbare requirements." />
-      <PersonaBanner highlights={{
-        Consultant: ['Elke requirement is herleidbaar naar een bron', 'AI-gegenereerd + handmatig gevalideerd'],
-        Founder: ['Requirements = bewijs dat de klant begrepen is', 'Versnelling vs handmatig uitschrijven'],
-        ProductOwner: ['Status per requirement: proposed → accepted → rejected', 'Directe koppeling met use cases'],
-        Investor: ['100% herleidbaar = auditeerbaar proces', 'AI-first methodiek, human in the loop'],
-      }} />
+    <Screen code="B4C-SCR-010" title={t.requirements.title}>
+      <PageHero label={t.requirements.label} title={t.requirements.title} subtitle={t.requirements.subtitle} />
+      <PersonaBanner highlights={t.requirements.highlights} />
       <DataTable
         headers={['ID', 'Requirement', 'Status', 'Bron']}
         rows={mockProject.requirements.map(r => [

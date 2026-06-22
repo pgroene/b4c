@@ -4,14 +4,17 @@ import { RouterProvider } from 'react-router-dom'
 import { router } from './router'
 import { PasswordGate } from './components/PasswordGate'
 import { PersonaProvider } from './contexts/PersonaContext'
+import { LanguageProvider } from './contexts/LanguageContext'
 import './index.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <PasswordGate>
-      <PersonaProvider>
-        <RouterProvider router={router} />
-      </PersonaProvider>
-    </PasswordGate>
+    <LanguageProvider>
+      <PasswordGate>
+        <PersonaProvider>
+          <RouterProvider router={router} />
+        </PersonaProvider>
+      </PasswordGate>
+    </LanguageProvider>
   </StrictMode>,
 )

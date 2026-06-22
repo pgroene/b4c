@@ -12,6 +12,7 @@ import { ReadinessScoreCard } from '../components/ReadinessScoreCard'
 import { StatusBadge } from '../components/StatusBadge'
 import { mockProject } from '../data/mockData'
 import { usePersonaCtx } from '../contexts/PersonaContext'
+import { useLang } from '../contexts/LanguageContext'
 
 function ConsultantPanel({ nav }: { nav: (r: string) => void }): React.JSX.Element {
   const steps = [
@@ -136,42 +137,35 @@ function InvestorPanel({ nav }: { nav: (r: string) => void }): React.JSX.Element
 export function SCR005_ProjectDashboard(): React.JSX.Element {
   const nav = useNavigate()
   const { persona } = usePersonaCtx()
+  const { t } = useLang()
+  const d = t.dashboard
   const blockers = mockProject.questions.filter(q => q.status === 'blocked').length
 
   return (
-    <Screen code="B4C-SCR-005" title="Projectdashboard">
-      <PageHero
-        label="PROJECTDASHBOARD"
-        title={mockProject.name}
-        subtitle="Centrale cockpit voor eerste bewijsroute: input → objecten → traceability → LFV → readiness."
-      />
-      <PersonaBanner highlights={{
-        Consultant: ['Volg de workflow van intake naar readiness', 'Zie open vragen en blokkades'],
-        Founder: ['SaaS-propositie: van chaos naar gestructureerde specificatie', 'Readiness score als verkoopargument'],
-        ProductOwner: ['Use case status en scope volledigheid', 'Open vragen die scope raken'],
-        Investor: ['Readiness gate: GO / ADJUST / BLOCK', 'Traceability completeness als bewijs'],
-      }} />
+    <Screen code="B4C-SCR-005" title={d.title}>
+      <PageHero label={d.label} title={d.title} subtitle={d.subtitle} />
+      <PersonaBanner highlights={t.requirements.highlights} />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
         <ReadinessScoreCard
           score={mockProject.readiness}
           blockers={blockers}
-          nextAction="Verwerk klantinput en genereer traceability-light."
+          nextAction={t.common.startIntake}
           gate="ADJUST"
         />
         <div className="bg-white rounded-[18px] border border-[#DDE5EE] p-5 flex flex-col gap-3">
           <div className="flex items-center justify-between">
-            <span className="text-[#6B7A90] text-sm">Open vragen</span>
+            <span className="text-[#6B7A90] text-sm">{t.common.openQuestions}</span>
             <StatusBadge status="blocked" />
           </div>
           <div className="text-4xl font-bold text-[#0E1B2A]">{mockProject.questions.length}</div>
-          <p className="text-[13px] text-[#6B7A90]">{blockers} open validatiepunten gevonden.</p>
-          <button onClick={() => nav('/projects/kapp/questions')} className="mt-auto text-[#E36F21] text-sm hover:underline text-left">Bekijk open vragen →</button>
+          <p className="text-[13px] text-[#6B7A90]">{blockers} {t.common.blockers}.</p>
+          <button onClick={() => nav('/projects/kapp/questions')} className="mt-auto text-[#E36F21] text-sm hover:underline text-left">{t.common.viewQuestions}</button>
         </div>
         <div className="bg-white rounded-[18px] border border-[#DDE5EE] p-5 flex flex-col gap-3">
           <div className="flex items-center justify-between">
-            <span className="text-[#6B7A90] text-sm">Next best action</span>
-            <StatusBadge status="proposed" label="AI proposed" />
+            <span className="text-[#6B7A90] text-sm">{t.common.nextBestAction}</span>
+            <StatusBadge status="proposed" label={t.common.aiProposed} />
           </div>
           <p className="text-[14px] text-[#0E1B2A] font-medium">Verwerk klantinput en genereer traceability-light.</p>
           <button onClick={() => nav('/projects/kapp/intake')} className="mt-auto py-2 bg-[#E36F21] text-white rounded-lg text-sm font-medium hover:bg-[#E36F21]/90 transition-colors">
@@ -182,10 +176,10 @@ export function SCR005_ProjectDashboard(): React.JSX.Element {
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
         {[
-          { label: 'Bronnen', count: mockProject.sources.length, route: '/projects/kapp/sources', status: 'validated' as const },
-          { label: 'Requirements', count: mockProject.requirements.length, route: '/projects/kapp/requirements', status: 'proposed' as const },
-          { label: 'Use cases', count: mockProject.useCases.length, route: '/projects/kapp/use-cases', status: 'proposed' as const },
-          { label: 'Documenten', count: mockProject.documents.length, route: '/projects/kapp/documents', status: 'draft' as const },
+          { label: t.common.sources,      count: mockProject.sources.length,      route: '/projects/kapp/sources',      status: 'validated' as const },
+          { label: t.common.requirements, count: mockProject.requirements.length,  route: '/projects/kapp/requirements', status: 'proposed' as const },
+          { label: t.common.useCases,     count: mockProject.useCases.length,      route: '/projects/kapp/use-cases',    status: 'proposed' as const },
+          { label: t.common.documents,    count: mockProject.documents.length,     route: '/projects/kapp/documents',    status: 'draft' as const },
         ].map(({ label, count, route, status }) => (
           <button key={label} onClick={() => nav(route)} className="bg-white rounded-[18px] border border-[#DDE5EE] p-4 flex flex-col gap-1 hover:border-[#E36F21]/40 transition-colors text-left">
             <span className="text-2xl font-bold text-[#0E1B2A]">{count}</span>
