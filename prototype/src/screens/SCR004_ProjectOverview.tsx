@@ -9,6 +9,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Screen, PageHero } from '../ScreenLayout'
 import { StatusBadge } from '../components/StatusBadge'
+import { useLang } from '../contexts/LanguageContext'
 
 const PROJECTS = [
   { id: 'kapp', name: 'Kerkleden-app NGK Beverwijk', client: 'NGK Beverwijk', wave: 'Wave 01', readiness: 62, route: '/projects/kapp/dashboard', status: 'proposed' as const },
@@ -22,13 +23,11 @@ const PROJECTS = [
  */
 export function SCR004_ProjectOverview(): React.JSX.Element {
   const nav = useNavigate()
+  const { t } = useLang()
+  const s = t.screens.scr004
   return (
-    <Screen code="B4C-SCR-004" title="Projectoverzicht">
-      <PageHero
-        label="PROJECTOVERZICHT"
-        title="Specificatieprojecten"
-        subtitle="Portfolio van actieve en afgeronde B4Code-trajecten."
-      />
+    <Screen code="B4C-SCR-004" title={s.title}>
+      <PageHero label={s.label} title={s.title} subtitle={s.subtitle} />
       <div className="flex flex-col gap-3">
         {PROJECTS.map(p => (
           <button
@@ -48,7 +47,7 @@ export function SCR004_ProjectOverview(): React.JSX.Element {
                 <div className="text-2xl font-bold text-[#0E1B2A]">{p.readiness}%</div>
                 <div className="text-[11px] text-[#6B7A90]">readiness</div>
               </div>
-              <StatusBadge status={p.status} label="actief" />
+              <StatusBadge status={p.status} label={s.activeLabel} />
               <span className="text-[#E36F21] text-sm">→</span>
             </div>
           </button>
@@ -57,4 +56,3 @@ export function SCR004_ProjectOverview(): React.JSX.Element {
     </Screen>
   )
 }
-

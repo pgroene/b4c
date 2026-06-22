@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom'
 import { Screen, PageHero } from '../ScreenLayout'
 import { DocumentPreviewCard } from '../components/DocumentPreviewCard'
 import { mockProject } from '../data/mockData'
+import { useLang } from '../contexts/LanguageContext'
 
 /**
  * SCR014_Documents component.
@@ -19,9 +20,11 @@ import { mockProject } from '../data/mockData'
  */
 export function SCR014_Documents(): React.JSX.Element {
   const nav = useNavigate()
+  const { t } = useLang()
+  const s = t.screens.scr014
   return (
-    <Screen code="B4C-SCR-014" title="Documentgeneratie preview">
-      <PageHero label="DOCUMENTGENERATIE" title="Output previews" subtitle="Documenttypes en exportlogica tonen." />
+    <Screen code="B4C-SCR-014" title={s.title}>
+      <PageHero label={s.label} title={s.title} subtitle={s.subtitle} />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {mockProject.documents.map(doc => (
           <DocumentPreviewCard key={doc.type} type={doc.type} status={doc.status} />
@@ -29,10 +32,9 @@ export function SCR014_Documents(): React.JSX.Element {
       </div>
       <div className="mt-4">
         <button onClick={() => nav('/projects/kapp/handover')} className="py-2 px-4 bg-[#E36F21] text-white rounded-lg text-sm font-medium hover:bg-[#E36F21]/90 transition-colors">
-          Export / handover preview →
+          {s.exportBtn}
         </button>
       </div>
     </Screen>
   )
 }
-

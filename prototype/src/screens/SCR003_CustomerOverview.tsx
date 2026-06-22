@@ -9,6 +9,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Screen, PageHero } from '../ScreenLayout'
 import { StatusBadge } from '../components/StatusBadge'
+import { useLang } from '../contexts/LanguageContext'
 
 /**
  * SCR003_CustomerOverview component.
@@ -18,14 +19,11 @@ import { StatusBadge } from '../components/StatusBadge'
  */
 export function SCR003_CustomerOverview(): React.JSX.Element {
   const nav = useNavigate()
+  const { t } = useLang()
+  const s = t.screens.scr003
   return (
-    <Screen code="B4C-SCR-003" title="Klantomgeving overzicht">
-      <PageHero
-        label="KLANTOMGEVING"
-        title="NGK Beverwijk"
-        subtitle="Klantomgeving en actieve specificatieprojecten."
-      />
-      {/* Customer info */}
+    <Screen code="B4C-SCR-003" title={s.title}>
+      <PageHero label={s.label} title={s.title} subtitle={s.subtitle} />
       <div className="bg-white rounded-[18px] border border-[#DDE5EE] p-5 mb-6 flex items-start gap-6">
         <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-lg flex-shrink-0" style={{ background: '#E36F21' }}>N</div>
         <div className="flex-1">
@@ -36,11 +34,9 @@ export function SCR003_CustomerOverview(): React.JSX.Element {
             <span className="text-[11px] font-mono px-2 py-0.5 rounded border border-[#DDE5EE] text-[#6B7A90]">Consultant: Piet Groen</span>
           </div>
         </div>
-        <StatusBadge status="proposed" label="actief" />
+        <StatusBadge status="proposed" label={s.activeLabel} />
       </div>
-
-      {/* Projects */}
-      <h3 className="text-sm font-semibold text-[#0E1B2A] mb-3">Specificatieprojecten</h3>
+      <h3 className="text-sm font-semibold text-[#0E1B2A] mb-3">{s.projectsHeading}</h3>
       <div className="flex flex-col gap-3">
         <button
           onClick={() => nav('/projects/kapp/dashboard')}
@@ -49,13 +45,12 @@ export function SCR003_CustomerOverview(): React.JSX.Element {
           <div className="w-10 h-10 rounded-lg flex items-center justify-center text-white text-sm font-bold flex-shrink-0" style={{ background: '#112B4C' }}>K</div>
           <div className="flex-1">
             <div className="font-semibold text-[#0E1B2A] text-sm">Kerkleden-app NGK Beverwijk</div>
-            <div className="text-[#6B7A90] text-xs mt-0.5">Wave 01 · Readiness 62% · 3 open vragen</div>
+            <div className="text-[#6B7A90] text-xs mt-0.5">{s.projectMeta}</div>
           </div>
-          <StatusBadge status="proposed" label="in uitvoering" />
+          <StatusBadge status="proposed" label={s.inProgressLabel} />
           <span className="text-[#E36F21] text-sm ml-2">→</span>
         </button>
       </div>
     </Screen>
   )
 }
-

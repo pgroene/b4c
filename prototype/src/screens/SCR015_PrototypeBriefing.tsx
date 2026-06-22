@@ -9,16 +9,17 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Screen, PageHero, DataTable } from '../ScreenLayout'
 import { StatusBadge } from '../components/StatusBadge'
+import { useLang } from '../contexts/LanguageContext'
 
-const SCREENS = [
-  { code: 'SCR-001', name: 'Login & toegang',           priority: 'Must',   status: 'ready' as const },
-  { code: 'SCR-002', name: 'Workspace selectie',         priority: 'Must',   status: 'ready' as const },
-  { code: 'SCR-005', name: 'Projectdashboard',           priority: 'Must',   status: 'ready' as const },
-  { code: 'SCR-007', name: 'Intake-invoer',              priority: 'Must',   status: 'ready' as const },
-  { code: 'SCR-010', name: 'Requirements workspace',     priority: 'Must',   status: 'proposed' as const },
-  { code: 'SCR-012', name: 'Traceability light',         priority: 'Must',   status: 'proposed' as const },
-  { code: 'SCR-013', name: 'Levend Functioneel Verhaal', priority: 'Should', status: 'proposed' as const },
-  { code: 'SCR-016', name: 'PMO & readiness gate',       priority: 'Must',   status: 'proposed' as const },
+const SCREEN_ROWS = [
+  { code: 'SCR-001', priority: 'Must',   status: 'ready' as const },
+  { code: 'SCR-002', priority: 'Must',   status: 'ready' as const },
+  { code: 'SCR-005', priority: 'Must',   status: 'ready' as const },
+  { code: 'SCR-007', priority: 'Must',   status: 'ready' as const },
+  { code: 'SCR-010', priority: 'Must',   status: 'proposed' as const },
+  { code: 'SCR-012', priority: 'Must',   status: 'proposed' as const },
+  { code: 'SCR-013', priority: 'Should', status: 'proposed' as const },
+  { code: 'SCR-016', priority: 'Must',   status: 'proposed' as const },
 ]
 
 /**
@@ -29,33 +30,28 @@ const SCREENS = [
  */
 export function SCR015_PrototypeBriefing(): React.JSX.Element {
   const nav = useNavigate()
+  const { t } = useLang()
+  const s = t.screens.scr015
   return (
-    <Screen code="B4C-SCR-015" title="Prototypebriefing">
-      <PageHero
-        label="PROTOTYPEBRIEFING"
-        title="Schermset overzicht"
-        subtitle="Specificatie richting UX/prototype — welke schermen zijn in scope voor Wave 01."
-      />
+    <Screen code="B4C-SCR-015" title={s.title}>
+      <PageHero label={s.label} title={s.title} subtitle={s.subtitle} />
 
       <DataTable
-        headers={['Code', 'Scherm', 'Prioriteit', 'Status']}
-        rows={SCREENS.map(s => [
-          <span className="font-mono text-xs text-[#6B7A90]">{s.code}</span>,
-          <button onClick={() => nav(`/projects/kapp/dashboard`)} className="text-[#E36F21] hover:underline text-left">{s.name}</button>,
-          <span className="text-sm">{s.priority}</span>,
-          <StatusBadge status={s.status} />,
+        headers={[s.colCode, s.colScreen, s.colPriority, s.colStatus]}
+        rows={SCREEN_ROWS.map(row => [
+          <span className="font-mono text-xs text-[#6B7A90]">{row.code}</span>,
+          <button onClick={() => nav('/projects/kapp/dashboard')} className="text-[#E36F21] hover:underline text-left">
+            {s.screenNames[row.code as keyof typeof s.screenNames] ?? row.code}
+          </button>,
+          <span className="text-sm">{row.priority}</span>,
+          <StatusBadge status={row.status} />,
         ])}
       />
 
       <div className="mt-6 bg-white rounded-[18px] border border-[#DDE5EE] p-5">
-        <h3 className="font-semibold text-[#0E1B2A] mb-2">UX-richting</h3>
-        <p className="text-sm text-[#6B7A90]">
-          Dark navy SaaS-shell met oranje accentkleur. Consultants werken in het linker navigatiepaneel.
-          Founders en investeerders zien samenvattende dashboards en readiness scores.
-          Alle schermen zijn mobile-aware maar primair desktop-geoptimaliseerd.
-        </p>
+        <h3 className="font-semibold text-[#0E1B2A] mb-2">{s.uxHeading}</h3>
+        <p className="text-sm text-[#6B7A90]">{s.uxBody}</p>
       </div>
     </Screen>
   )
 }
-
