@@ -1,7 +1,7 @@
 {
-  "generated": "2026-06-22T17:31:45.491Z",
+  "generated": "2026-06-22T19:19:55.392Z",
   "scannedPath": "prototype/src",
-  "filesScanned": 35,
+  "filesScanned": 39,
   "entries": [
     {
       "file": "prototype/src/components/AIAgentRunPanel.tsx",
@@ -47,7 +47,7 @@
     },
     {
       "file": "prototype/src/components/AppShell.tsx",
-      "line": 51,
+      "line": 22,
       "class": null,
       "member": "AppShell",
       "memberType": "Component",
@@ -774,11 +774,11 @@
       "notes": null
     },
     {
-      "file": "prototype/src/ScreenLayout.tsx",
-      "line": 33,
+      "file": "prototype/src/i18n/translations.ts",
+      "line": 1,
       "class": null,
-      "member": "Screen",
-      "memberType": "Component",
+      "member": "translations",
+      "memberType": "Utility",
       "screen": "*",
       "wave": null,
       "epic": null,
@@ -789,7 +789,7 @@
     },
     {
       "file": "prototype/src/screens/SCR001_Login.tsx",
-      "line": 12,
+      "line": 21,
       "class": null,
       "member": "SCR001_Login",
       "memberType": "Component",
@@ -817,7 +817,7 @@
     },
     {
       "file": "prototype/src/screens/SCR003_CustomerOverview.tsx",
-      "line": 12,
+      "line": 13,
       "class": null,
       "member": "SCR003_CustomerOverview",
       "memberType": "Component",
@@ -831,7 +831,7 @@
     },
     {
       "file": "prototype/src/screens/SCR004_ProjectOverview.tsx",
-      "line": 12,
+      "line": 17,
       "class": null,
       "member": "SCR004_ProjectOverview",
       "memberType": "Component",
@@ -845,7 +845,7 @@
     },
     {
       "file": "prototype/src/screens/SCR005_ProjectDashboard.tsx",
-      "line": 15,
+      "line": 131,
       "class": null,
       "member": "SCR005_ProjectDashboard",
       "memberType": "Component",
@@ -859,7 +859,7 @@
     },
     {
       "file": "prototype/src/screens/SCR006_Classification.tsx",
-      "line": 12,
+      "line": 19,
       "class": null,
       "member": "SCR006_Classification",
       "memberType": "Component",
@@ -915,7 +915,7 @@
     },
     {
       "file": "prototype/src/screens/SCR010_Requirements.tsx",
-      "line": 14,
+      "line": 15,
       "class": null,
       "member": "SCR010_Requirements",
       "memberType": "Component",
@@ -943,7 +943,7 @@
     },
     {
       "file": "prototype/src/screens/SCR012_Traceability.tsx",
-      "line": 14,
+      "line": 15,
       "class": null,
       "member": "SCR012_Traceability",
       "memberType": "Component",
@@ -985,7 +985,7 @@
     },
     {
       "file": "prototype/src/screens/SCR015_PrototypeBriefing.tsx",
-      "line": 12,
+      "line": 24,
       "class": null,
       "member": "SCR015_PrototypeBriefing",
       "memberType": "Component",
@@ -999,7 +999,7 @@
     },
     {
       "file": "prototype/src/screens/SCR016_Readiness.tsx",
-      "line": 15,
+      "line": 16,
       "class": null,
       "member": "SCR016_Readiness",
       "memberType": "Component",
@@ -1013,7 +1013,7 @@
     },
     {
       "file": "prototype/src/screens/SCR017_Settings.tsx",
-      "line": 12,
+      "line": 18,
       "class": null,
       "member": "SCR017_Settings",
       "memberType": "Component",
@@ -1041,7 +1041,7 @@
     },
     {
       "file": "prototype/src/screens/SCR019_KnowledgeVault.tsx",
-      "line": 12,
+      "line": 19,
       "class": null,
       "member": "SCR019_KnowledgeVault",
       "memberType": "Component",
@@ -1055,7 +1055,7 @@
     },
     {
       "file": "prototype/src/screens/SCR020_Handover.tsx",
-      "line": 12,
+      "line": 31,
       "class": null,
       "member": "SCR020_Handover",
       "memberType": "Component",
