@@ -21,8 +21,14 @@ variable "container_image" {
   type        = string
 }
 
+variable "demo_username" {
+  description = "Username for the demo login gate (injected as DEMO_USERNAME env var into the container)"
+  type        = string
+  default     = "b4code"
+}
+
 variable "demo_password" {
-  description = "Password for the demo password gate (injected as DEMO_PASSWORD env var into the container)"
+  description = "Password for the demo login gate (injected as DEMO_PASSWORD env var into the container)"
   type        = string
   sensitive   = true
 }

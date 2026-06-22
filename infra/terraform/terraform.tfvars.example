@@ -8,8 +8,9 @@ environment    = "production"
 # Full image reference — updated automatically by GitHub Actions on each deploy
 container_image = "b4codeacrproduction.azurecr.io/prototype:latest"
 
-# Password shown to visitors on the demo password gate
-demo_password  = "change-me-before-deploying"
+# Password shown to visitors on the demo login gate
+demo_username  = "b4code"
+demo_password  = "Demo2026!"
 
 # Scale to zero when idle (Azure Container Apps feature)
 min_replicas   = 0

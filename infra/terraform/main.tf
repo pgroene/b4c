@@ -84,6 +84,11 @@ resource "azurerm_container_app" "prototype" {
       memory = var.memory
 
       env {
+        name  = "DEMO_USERNAME"
+        value = var.demo_username
+      }
+
+      env {
         name        = "DEMO_PASSWORD"
         secret_name = "demo-password"
       }
