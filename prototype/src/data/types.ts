@@ -44,6 +44,28 @@ export interface TraceabilityLink {
   lfvSection: string
 }
 
+export type CoverageLabel = 'ok' | 'aandacht' | 'gap'
+
+export interface TraceabilityRow {
+  id: string                  // e.g. UC-012
+  domein: string
+  proces: string
+  useCase: string
+  dataObjecten: string
+  autorisatie: string
+  schermen: string
+  tests: string
+  coveragePct: number
+  coverageLabel: CoverageLabel
+  // Detail panel fields
+  status: string
+  privacygevoelig: boolean
+  buildReadyImpact: string
+  eigenaar: string
+  laatsteUpdate: string
+  gekoppeldeVervolgactie: string
+}
+
 export interface DocumentPreview {
   type: string
   status: StatusState
@@ -58,5 +80,6 @@ export interface MockProject {
   requirements: Requirement[]
   useCases: UseCase[]
   traceability: TraceabilityLink[]
+  traceabilityMatrix: TraceabilityRow[]
   documents: DocumentPreview[]
 }
